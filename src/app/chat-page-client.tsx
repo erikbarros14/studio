@@ -17,6 +17,8 @@ import { useToast } from "@/hooks/use-toast";
 import { Send, Mic, LifeBuoy, Waves, Bot, User, Volume2, VolumeX, Loader2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { cn } from '@/lib/utils';
 
 export default function ChatPageClient() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -124,7 +126,7 @@ export default function ChatPageClient() {
       setCurrentMood(sentimentResult);
       
       const newMoodPoint: MoodPoint = {
-        name: `Msg ${messages.length / 2 + 1}`, // Simple naming for graph
+        name: `Msg ${Math.floor(messages.length / 2) + 1}`, // Simple naming for graph
         score: sentimentResult.score,
       };
       setMoodHistory(prev => [...prev, newMoodPoint]);
