@@ -61,7 +61,7 @@ export default function ChatPageClient() {
   }, [speechError, toast]);
   
   useEffect(() => {
-    // Scroll to bottom when new messages are added
+    // Scroll to bottom when new messages are added remote
     if (scrollAreaRef.current) {
       const scrollViewport = scrollAreaRef.current.querySelector('div[data-radix-scroll-area-viewport]');
       if (scrollViewport) {
